@@ -31,7 +31,7 @@ private final AuthenticationManager authenticationManager;
         this.jwtTokenUtil = jwtTokenUtil;
         this.authenticationManager = authenticationManager;
     }
-    @PostMapping("register")
+    @PostMapping("signup")
     public ResponseEntity<Response<UserDto>>register(@RequestBody UserRequest request){
         Response<UserDto> response=Response.<UserDto>builder()
                 .payload(service.register(request))
@@ -39,7 +39,7 @@ private final AuthenticationManager authenticationManager;
                 .dateTime(LocalDateTime.now()).build();
         return ResponseEntity.ok().body(response);
     }
-   @PostMapping("login")
+   @PostMapping("signin")
     public ResponseEntity<Response<UserDto>> createAuthenticationToken(@RequestBody UserLoginRequest authenticationRequest) throws Exception {
 
         authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
