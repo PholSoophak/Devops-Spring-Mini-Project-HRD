@@ -31,7 +31,7 @@ private final AuthenticationManager authenticationManager;
         this.jwtTokenUtil = jwtTokenUtil;
         this.authenticationManager = authenticationManager;
     }
-    @PostMapping("signup")
+    @PostMapping("register")
     public ResponseEntity<Response<UserDto>>register(@RequestBody UserRequest request){
         Response<UserDto> response=Response.<UserDto>builder()
                 .payload(service.register(request))
